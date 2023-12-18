@@ -12,7 +12,12 @@ class FileStorage:
         """Returns a dictionary of models currently in storage"""
         if cls is None:
             return FileStorage.__objects
-        return {k: v for k, v in FileStorage.__objects.items() if isinstance(v, cls)}
+        results = {}
+        o = FileStorage.__objects
+        for key in o:
+            if o[key].__class__ == cls:
+                results[key] = o[key]
+        return results
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
@@ -38,25 +43,35 @@ class FileStorage:
         from models.review import Review
 
         classes = {
-                    'BaseModel': BaseModel, 'User': User, 'Place': Place,
-                    'State': State, 'City': City, 'Amenity': Amenity,
-                    'Review': Review
-                  }
+            'BaseModel': BaseModel, 'User': User, 'Place': Place,
+            'State': State, 'City': City, 'Amenity': Amenity,
+            'Review': Review
+        }
         try:
             temp = {}
             with open(FileStorage.__file_path, 'r') as f:
                 temp = json.load(f)
                 for key, val in temp.items():
-                        self.all()[key] = classes[val['__class__']](**val)
+                    self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
 
     def delete(self, obj=None):
-        """Deletes obj from __objects if it exists"""
+        """Deletes the specified object from models currently in storage"""
         if obj is not None:
+<<<<<<< HEAD
             key = obj.__class__.__name__ + '.' + obj.id
             if key in self.all():
                 del self.all()[key]
 
     def close(self):
+=======
+            # FileStorage.__objects.pop(
+            #     f"{obj.__class__.__name__}.{obj.id}", None)
+            del (FileStorage.__objects["{}.{}".format(
+                obj.__class__.__name__, obj.id)])
+
+    def close(self):
+        """Deserializes the JSON file"""
+>>>>>>> 1aaa358ba65a997b4545212c72aaf91d8fd849f5
         self.reload()
