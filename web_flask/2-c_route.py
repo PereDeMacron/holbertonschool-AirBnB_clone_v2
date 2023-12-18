@@ -9,17 +9,20 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
+    """returns a string"""
     return("Hello HBNB!")
 
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
+    """returns HBNB string"""
     return("HBNB")
 
 
 @app.route('/c/<text>', strict_slashes=False)
 def print_c(text):
     result= text.result('_', ' ')
+    """return a custom user string"""
     return("C {}".format.string(result))
 
 
