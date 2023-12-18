@@ -35,7 +35,7 @@ def python_print(text="is cool"):
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def print_number(n):
-    if type(n)== int:
+    if type(n) == int:
         """Function that returns a string only if n is a number"""
         return("{} is a number".format(n))
 
