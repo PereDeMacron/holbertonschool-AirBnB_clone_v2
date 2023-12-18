@@ -10,19 +10,23 @@ app = Flask(__name__)
 def hello_hbnb():
     return("Hello HBNB!")
 
+
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     return("HBNB")
+
 
 @app.route('/c/<text>', strict_slashes=False)
 def print_c(text):
     result= text.result('_', ' ')
     return("C {}".format.string(result))
 
+
 @app.route('/python/<text>', strict_slashes=False)
 def print_python(text= "Is Cool"):
     result= text.result('_', ' ')
     return("Python {}".format.string(result))
+
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def print_number(n):

@@ -15,7 +15,6 @@ def close(self):
     storage.close()
 
 
-
 @app.route('/states', strict_slashes=False)
 def state():
     """Displays a html page with states"""
