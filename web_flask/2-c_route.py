@@ -9,19 +9,19 @@ app = Flask(__name__)
 
 @app.route("/", strict_slashes=False)
 def hello():
-    """Function that returns a simple string"""
+    """returns a string"""
     return "Hello HBNB!"
 
 
 @app.route("/hbnb", strict_slashes=False)
 def hello_hbnb():
-    """Function that returns HBNB string"""
+    """returns HBNB"""
     return "HBNB"
 
 
 @app.route("/c/<text>", strict_slashes=False)
 def c_print(text):
-    """Function that returns a C string"""
+    """Function that returns a C(str) and user text"""
     result = text.replace('_', ' ')
     return "C {}".format(result)
 

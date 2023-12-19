@@ -6,7 +6,6 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 
-
 app = Flask(__name__)
 
 

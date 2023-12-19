@@ -2,7 +2,6 @@
 """Start a Flask web application on localhost"""
 from flask import Flask
 
-
 app = Flask(__name__)
 
 
@@ -14,13 +13,13 @@ def hello_hbnb():
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """returns HBNB string"""
+    """returns HBNB"""
     return("HBNB")
 
 
 @app.route("/c/<text>", strict_slashes=False)
 def c_print(text):
-    """Function that returns a C string"""
+    """Function that returns a C(str) and user text"""
     result = text.replace('_', ' ')
     return "C {}".format(result)
 
@@ -28,7 +27,7 @@ def c_print(text):
 @app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def python_print(text="is cool"):
-    """Function that returns a Python string"""
+    """Function that returns a Python(str) and user text"""
     result = text.replace('_', ' ')
     return "Python {}".format(result)
 
@@ -36,7 +35,7 @@ def python_print(text="is cool"):
 @app.route('/number/<int:n>', strict_slashes=False)
 def print_number(n):
     if type(n) == int:
-        """Function that returns a string only if n is a number"""
+        """Function that returns a string only if n is a integer(number)"""
         return("{} is a number".format(n))
 
 
