@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Start a Flask web application on localhost"""
 from flask import Flask
-from flask import render_template
 
 app = Flask(__name__)
 
@@ -33,18 +32,19 @@ def python_print(text="is cool"):
     return "Python {}".format(result)
 
 
-@app.route('/number/<n>', strict_slashes=False)
+@app.route('/number/<int:n>', strict_slashes=False)
 def print_number(n):
-    if type(n)== int:
+    if type(n) == int:
         """Function that returns a string only if n is a integer(number)"""
         return("{} is a number".format(n))
-
+    
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def print_number(n):
     if type(n)== int:
         """Function that displays a HTML page only if n is an integer"""
         return render_template('5-number.html', n=n)
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=None)
