@@ -42,7 +42,8 @@ def python_print(text="is cool"):
 @app.route('/number/<int:n>', strict_slashes=False)
 def print_number(n):
     """
-    Function that returns a string stating that the provided number is a number.
+    Function that returns a string stating
+        that the provided number is a number.
     Only works if the provided value is an integer.
     """
     if type(n) == int:
