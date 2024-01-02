@@ -5,15 +5,18 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
     """Returns a string: 'Hello HBNB!'"""
     return "Hello HBNB!"
 
+
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """Returns a string: 'HBNB'"""
     return "HBNB"
+
 
 @app.route("/c/<text>", strict_slashes=False)
 def c_print(text):
@@ -23,6 +26,7 @@ def c_print(text):
     """
     result = text.replace('_', ' ')
     return "C {}".format(result)
+
 
 @app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
@@ -34,6 +38,7 @@ def python_print(text="is cool"):
     result = text.replace('_', ' ')
     return "Python {}".format(result)
 
+
 @app.route('/number/<int:n>', strict_slashes=False)
 def print_number(n):
     """
@@ -42,6 +47,7 @@ def print_number(n):
     """
     if type(n) == int:
         return "{} is a number".format(n)
+
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def print_number_template(n):
