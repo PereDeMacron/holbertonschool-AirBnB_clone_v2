@@ -22,7 +22,7 @@ class FileStorage:
                 cls = eval(cls)
             my_dict = {}
             for key, value in self.__objects.items():
-                if isinstance(cls), int):
+                if isinstance(cls, int):
                     my_dict[key] = value
             return my_dict
         return self.__objects
