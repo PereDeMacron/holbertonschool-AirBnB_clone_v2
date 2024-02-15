@@ -46,7 +46,8 @@ def print_number(n):
         that the provided number is a number.
     Only works if the provided value is an integer.
     """
-    if type(n) == int:
+    if isinstance(n, int):
+
         return "{} is a number".format(n)
 
 
@@ -57,7 +58,8 @@ def print_number_template(n):
     Only works if the provided value is an integer.
     Uses the '5-number.html' template for rendering.
     """
-    if type(n) == int:
+    if isinstance(n, int):
+
         return render_template('5-number.html', n=n)
 
 
